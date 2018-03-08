@@ -7,6 +7,11 @@
 <struts>
 
     <package name="struts2" namespace="/" extends="struts-default">
+
+        <action name="msg" class="com.ikook.action.MsgAction">
+            <result>/errorMessageTags.jsp</result>
+        </action>
+
     </package>
 
 </struts>
