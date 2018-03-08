@@ -13,7 +13,7 @@
     <constant name="struts.custom.i18n.resources" value="com.ikook.action.FileUploadMessage"/>
 
 
-    <package name="struts2" namespace="/" extends="struts-default">
+    <package name="struts2" namespace="/*" extends="struts-default">
 
         <!-- 简单文件上传 -->
         <!--<action name="fileUpload" class="com.ikook.action.FileUploadAction">-->
@@ -41,6 +41,37 @@
                     text/plain,application/msword,image/jpeg
                 </param>
             </interceptor-ref>
+        </action>
+
+        <action name="simpledownload"
+                class="com.ikook.action.SimpleDownLoadAction">
+            <result type="stream">
+                <!--文件类型 -->
+                <param name="contentType">text/plain</param>
+                <!--指定文件名-->
+                <param name="contentDisposition">
+                    attachment;filename="中文文件.txt"
+                </param>
+                <!--<param name="contentDisposition">-->
+                    <!--attachment;filename="Struts2.txt"-->
+                <!--</param>-->
+                <!--输入流 -->
+                <param name="inputName">downloadFile</param>
+            </result>
+        </action>
+
+        <action name="simpledownload2"
+                class="com.ikook.action.SimpleDownLoad2Action">
+            <result type="stream">
+                <!--文件类型 -->
+                <param name="contentType">${contentType}</param>
+                <!--指定文件名 -->
+                <param name="contentDisposition">
+                    attachment;filename=${filename}
+                </param>
+                <!--输入流 -->
+                <param name="inputName">downloadFile2</param>
+            </result>
         </action>
 
     </package>
