@@ -8,4 +8,18 @@
 
     <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
 
+    <package name="struts2" extends="struts-default" namespace="/">
+        <action name="valueStack" class="com.ikook.action.ValueStackAction">
+            <result name="success">/index.jsp</result>
+        </action>
+
+        <action name="valueStack2" class="com.ikook.action.ValueStack2Action">
+            <result name="success">/valueStack2.jsp</result>
+        </action>
+
+        <action name="valueStack3" class="com.ikook.action.ValueStack3Action">
+            <result name="success">/valueStack3.jsp</result>
+        </action>
+    </package>
+
 </struts>
