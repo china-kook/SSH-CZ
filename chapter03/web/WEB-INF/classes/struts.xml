@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="struts2" namespace="/" extends="struts-default">
+
+        <!-- 声明拦截器 -->
+        <interceptors>
+            <interceptor name="privilege" class="com.ikook.interceptor.PrivilegeInterceptor"/>
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="privilege"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <!-- 用户登录操作 -->
+        <action name="login" class="com.ikook.action.LoginAction">
+            <result>/index.jsp</result>
+            <result name="input">/login.jsp</result>
+        </action>
+
+        <!-- 关于 Book 的操作-->
+        <action name="book_*" class="com.ikook.action.BookAction" method="{1}">
+            <result>/success.jsp</result>
+            <result name="login">/login.jsp</result>
+            <!-- 在 Action 中使用自定义拦截器-->
+            <interceptor-ref name="myStack"/>
+        </action>
+
+    </package>
+
+</struts>
