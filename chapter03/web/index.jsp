@@ -7,10 +7,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>index.jsp</title>
+</head>
+<body>
+<a href="/chapter03/book_del">book del</a><br>
+<a href="/chapter03/book_add">book add</a><br>
+<a href="/chapter03/book_update">book update</a><br>
+<a href="/chapter03/book_find">book find</a><br>
+</body>
 </html>
