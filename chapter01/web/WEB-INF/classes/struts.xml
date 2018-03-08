@@ -6,10 +6,13 @@
 
 <struts>
 
+    <constant name="struts.i18n.encoding" value="utf-8"/>
+    <constant name="struts.devMode" value="true"/>
+
     <package name="hello" extends="struts-default" namespace="/*">
         <action name="helloWorld" class="com.ikook.action.HelloWorldAction">
             <result name="success">/success.jsp</result>
         </action>
     </package>
 
-</struts>
+</struts>+
