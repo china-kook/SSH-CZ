@@ -20,6 +20,7 @@ public class CustomerTest {
     public void insertTest() {
 
         // 1. 加载 hibernate.cfg.xml 配置
+        //Configuration config = new Configuration().configure("/config/hibernate.cfg.xml");//查找指定位置的配制文件
         Configuration configuration = new Configuration().configure(); // 默认去类路径的根目录下查找名称为 hibernate.cfg.xml 的文件
 
         // 2. 获取 SessionFactory
