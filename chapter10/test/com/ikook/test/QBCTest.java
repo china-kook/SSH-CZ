@@ -1,6 +1,7 @@
-package com.ikook.utils;
+package com.ikook.test;
 
 import com.ikook.domain.Customer;
+import com.ikook.utils.HibernateUtils;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
