@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <!-- name 代表的是实体类名   table 代表的是表名 -->
+    <class name="com.ikook.domain.Customer" table="customer">
+
+        <!-- name=id 代表的是customer类中属性 column=id 代表的是table表中的字段 -->
+        <id name="id" column="id">
+            <!-- 主键的生成策略 -->
+            <generator class="native"/>
+        </id>
+
+        <property name="name" column="name" type="string"/>
+        <property name="age" column="age" type="integer"/>
+        <property name="sex" column="sex" type="string"/>
+        <property name="city" column="city" type="string"/>
+    </class>
+
+
+</hibernate-mapping>
