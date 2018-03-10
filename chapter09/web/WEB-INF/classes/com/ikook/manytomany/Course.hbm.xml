@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.ikook.manytomany.Course" table="course">
+
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+
+        <property name="cname" length="30"/>
+
+        <set name="students" table="s_c" inverse="true">
+            <key column="cid"></key>
+            <many-to-many class="com.ikook.manytomany.Student" column="sid"/>
+        </set>
+
+    </class>
+
+</hibernate-mapping>
