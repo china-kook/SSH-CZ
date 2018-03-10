@@ -13,7 +13,7 @@
         <property name="name" length="20"/>
 
         <!-- 一对多的关系使用 set 集合映射 -->
-        <set name="orders">
+        <set name="orders" cascade="save-update,delete,delete-orphan">
             <!-- 确定关联的外键列-->
             <key column="cid"/>
             <!-- 映射到关联类属性 -->
