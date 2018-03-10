@@ -32,10 +32,11 @@ public class ManyToMany {
         student2.getCourses().add(course2);
 
         // 科目关联学生
-//        course1.getStudents().add(student1);
-//        course1.getStudents().add(student1);
-//        course2.getStudents().add(student1);
-//        course2.getStudents().add(student1);
+        course1.getStudents().add(student1);
+        course1.getStudents().add(student2);
+
+        course2.getStudents().add(student1);
+        course2.getStudents().add(student2);
 
         // 存储
         session.save(student1);

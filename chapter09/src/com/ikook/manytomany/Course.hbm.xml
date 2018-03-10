@@ -13,7 +13,7 @@
 
         <property name="cname" length="30"/>
 
-        <set name="students" table="s_c">
+        <set name="students" table="s_c" inverse="true">
             <key column="cid"></key>
             <many-to-many class="com.ikook.manytomany.Student" column="sid"/>
         </set>
