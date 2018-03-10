@@ -13,7 +13,7 @@
 
         <property name="sname" length="30"/>
 
-        <set name="courses" table="s_c">
+        <set name="courses" table="s_c" cascade="save-update,delete">
             <key column="sid"></key>
             <many-to-many class="com.ikook.manytomany.Course" column="cid"/>
         </set>
