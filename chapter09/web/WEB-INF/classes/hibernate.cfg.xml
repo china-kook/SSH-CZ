@@ -41,5 +41,9 @@
         <mapping resource="com/ikook/onetomany/Customer.hbm.xml"/>
         <mapping resource="com/ikook/onetomany/Order.hbm.xml"/>
 
+        <!-- 用来关联 hbm 映射文件 -->
+        <mapping resource="com/ikook/manytomany/Student.hbm.xml"/>
+        <mapping resource="com/ikook/manytomany/Course.hbm.xml"/>
+
     </session-factory>
 </hibernate-configuration>
