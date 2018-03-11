@@ -32,8 +32,9 @@
         <!-- 			Thread -->
         <!--  	    </property> -->
         <!-- 可以添加映射文件 -->
-        <mapping resource="com/ikook/domain/User.hbm.xml"/>
-        <!-- 使用注解方式 -->
-        <!--<mapping class="cn.itcast.domain.User"/>-->
+        <!--<mapping resource="com/ikook/domain/User.hbm.xml"/>-->
+
+        <!--使用注解方式-->
+        <mapping class="com.ikook.domain.User"/>
     </session-factory>
 </hibernate-configuration>

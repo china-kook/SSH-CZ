@@ -4,11 +4,11 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.ikook.domain.User" table="t_user">
-        <id name="id">
-            <generator class="native"/>
-        </id>
-        <property name="username"/>
-        <property name="password"/>
-    </class>
+    <!--<class name="com.ikook.domain.User" table="t_user">-->
+        <!--<id name="id">-->
+            <!--<generator class="native"/>-->
+        <!--</id>-->
+        <!--<property name="username"/>-->
+        <!--<property name="password"/>-->
+    <!--</class>-->
 </hibernate-mapping>
