@@ -9,7 +9,7 @@
     <bean id="userDao" class="com.ikook.dao.UserDaoImpl"/>
 
     <!-- 2. 通知 advice -->
-    <bean id="myAspect" class="com.ikook.factorybean.MyAspect"/>
+    <!--<bean id="myAspect" class="com.ikook.factorybean.MyAspect"/>-->
 
     <!-- 3. 生成代理对象 -->
     <bean id="userDaoProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
