@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1. 目标类 -->
+    <bean id="userDao" class="com.ikook.dao.UserDaoImpl"/>
+
+    <!-- 2. 通知 advice -->
+    <bean id="myAspect" class="com.ikook.factorybean.MyAspect"/>
+
+    <!-- 3. 生成代理对象 -->
+    <bean id="userDaoProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+
+        <!-- 3.1 代理实现的接口 -->
+        <property name="interfaces" value="com.ikook.dao.UserDao"/>
+
+        <!-- 3.2 目标 -->
+        <property name="target" ref="userDao"/>
+
+        <!-- 3.3 用通知增强目标 -->
+        <property name="interceptorNames" value="myAspect"/>
+
+        <!-- 3.4 如何生成代理，true：使用 cglib，false：使用 jdk 动态代理 -->
+        <property name="proxyTargetClass" value="true"/>
+
+    </bean>
+
+
+</beans>
