@@ -8,7 +8,9 @@
     <!-- 开发模式 -->
     <constant name="struts.devMode" value="true"/>
     <package name="ssh" namespace="/" extends="struts-default">
-
+        <action name="userAction_*" class="com.ikook.action.UserAction" method="{1}">
+            <result name="add">/success.jsp</result>
+        </action>
     </package>
 
 </struts>
