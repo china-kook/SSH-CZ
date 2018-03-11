@@ -8,5 +8,11 @@
     <!-- 将指定对象配置给 Spring， 让 Spring 创建其实例-->
     <bean id="userDao" class="com.ikook.ioc.UserDaoImpl"/>
 
+    <!--注册一个名称为 userService 的实例 -->
+    <bean id="userService" class="com.ikook.ioc.UserServiceImpl">
+        <!--将 userDao 实例注入到 userService 实例中 -->
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
 
 </beans>
