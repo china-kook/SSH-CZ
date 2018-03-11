@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 通知 spring 扫描指定目录，进行注解的解析,使用 context 命名空间 -->
+    <context:component-scan base-package="com.ikook.annotation"/>
+
+    <!--<bean id="userDao" class="com.ikook.annotation.UserDaoImpl"/>-->
+    <!--&lt;!&ndash; 默认情况下，需要通过'ref’来装配bean，但设置了autowire="byName"，-->
+         <!--Spring会自动寻找与属性名字“userDao”相同的bean，-->
+                  <!--找到后，通过调用setUserDao(UserDao userDao)将其注入属性 ，-->
+                  <!--这时就不需要通过ref来装配了&ndash;&gt;-->
+    <!--<bean id="userService" class="com.ikook.annotation.UserServiceImpl" autowire="byName"/>-->
+    <!--<bean id="userAction" class="com.ikook.annotation.UserAction" autowire="byName"/>-->
+
+
+</beans>

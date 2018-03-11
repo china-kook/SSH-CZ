@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 使用构造方式装配user实例    -->
+    <bean id="user1" class="com.ikook.assemble.User">
+        <constructor-arg index="0" value="jack"/>
+        <constructor-arg index="1" value="1234"/>
+    </bean>
+
+    <!-- 使用设值注入方式装配 User 实例-->
+    <bean id="user2" class="com.ikook.assemble.User">
+
+        <property name="username" value="tom"/>
+        <property name="password" value="4321"/>
+
+    </bean>
+
+
+</beans>
