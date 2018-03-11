@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 0加载 properties 文件 -->
+    <context:property-placeholder location="classpath:c3p0-db.properties"/>
+
+    <!-- 1 配置数据源，读取 properties 文件信息 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driverClass}"/>
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"/>
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!-- 2 配置 jdbc 模板 -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- 3 配置 dao -->
+    <bean id="accountDao" class="com.ikook.dao.impl.AccountDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+    <!-- 4 配置service -->
+    <bean id="accountService" class="com.ikook.service.impl.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao"/>
+    </bean>
+
+    <!-- #1 事务管理器，依赖于数据源 -->
+    <bean id="transactionManagers"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- #2 生成代理类，让代理管理事务，依赖于事务管理器 -->
+    <bean id="accountServiceProxy"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <!-- #2.1 提供事务管理器 -->
+        <property name="transactionManager" ref="transactionManagers"/>
+        <!-- #2.2 目标类 -->
+        <property name="target" ref="accountService"/>
+        <!-- #2.3 提供接口 -->
+        <property name="proxyInterfaces" value="com.ikook.service.AccountService"/>
+        <!-- #2.4 事务的详情配置，给 TransactionDefinition进行赋值 -->
+        <property name="transactionAttributes">
+            <props>
+                <prop key="*">PROPAGATION_REQUIRED,ISOLATION_REPEATABLE_READ</prop>
+            </props>
+        </property>
+    </bean>
+</beans>
