@@ -11,7 +11,7 @@ public class TestApp {
     @Test
     public void demo01() {
         User user = new User();
-        user.setUsername("jack");
+        user.setUsername("kook");
         user.setPassword("1234");
 
         String xmlPath = "applicationContext.xml";
