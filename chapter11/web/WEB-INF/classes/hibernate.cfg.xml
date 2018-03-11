@@ -36,7 +36,7 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- 开启二级缓存 -->
-        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_second_level_cache">false</property>
 
         <!-- 指定二级缓存供应商 -->
         <property name="hibernate.cache.provider_class">
