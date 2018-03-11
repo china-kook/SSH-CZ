@@ -59,6 +59,11 @@
         <property name="userDao" ref="userDao"/>
     </bean>
 
+    <bean id="userAction" class="com.ikook.action.UserAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+    </bean>
+
+
     <!-- 4 事务管理 -->
     <!-- #1 事务管理器,就是平台，spring 工具产生， 依赖于使用 持久方案（hibernate、jdbc等） -->
     <bean id="txManager"
